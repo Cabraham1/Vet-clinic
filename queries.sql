@@ -33,3 +33,17 @@ WHERE name != 'Gabumon';
 SELECT * FROM animals
 WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
+BEGIN TRANSACTION;
+
+UPDATE animals
+SET species = 'unspecified';
+
+-- Verify that the change was made
+SELECT * FROM animals;
+
+ROLLBACK;
+
+-- Verify that the change was rolled back
+SELECT * FROM animals;
+
+
