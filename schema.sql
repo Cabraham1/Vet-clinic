@@ -7,6 +7,7 @@ CREATE TABLE animals (
 CREATE TABLE animals (
   id INTEGER,
   name VARCHAR(255),
+  species VARCHAR(255)
   date_of_birth DATE,
   escape_attempts INTEGER,
   neutered BOOLEAN,
