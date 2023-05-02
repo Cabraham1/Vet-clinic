@@ -47,3 +47,20 @@ ROLLBACK;
 SELECT * FROM animals;
 
 
+BEGIN TRANSACTION;
+
+-- Set the "species" column to "digimon" for all animals with a name ending in "mon"
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+
+-- Set the "species" column to "pokemon" for all animals that don't have a species value yet
+UPDATE animals
+SET species = 'pokemon'
+WHERE species IS NULL;
+
+-- Commit the transaction
+COMMIT;
+
+-- Verify that the changes were made and persisted after commit
+SELECT * FROM animals;
