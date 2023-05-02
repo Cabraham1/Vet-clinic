@@ -64,3 +64,15 @@ COMMIT;
 
 -- Verify that the changes were made and persisted after commit
 SELECT * FROM animals;
+
+
+BEGIN TRANSACTION;
+
+-- Delete all records in the "animals" table
+DELETE FROM animals;
+
+-- Rollback the transaction
+ROLLBACK;
+
+-- Verify that all records in the "animals" table still exist
+SELECT * FROM animals;
