@@ -174,10 +174,10 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Ayomipo Majek**
+👤 **Abraham Christopher**
 
-- GitHub: [@AyomipoMajek](https://github.com/cabraham1)
-- Linkedin: [@AyomipoMajek](https://www.linkedin.com/in/abrahamchristopher/)
+- GitHub: [@abraham christopher](https://github.com/cabraham1)
+- Linkedin: [@abraham christopher](https://www.linkedin.com/in/abrahamchristopher/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -193,7 +193,7 @@ Example:
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/AyomipoMajek/react-capstone/issues).
+Feel free to check the [issues page](https://github.com/Cabraham1/Vet-clinic/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
