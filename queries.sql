@@ -57,7 +57,7 @@ WHERE name LIKE '%mon';
 -- Set the "species" column to "pokemon" for all animals that don't have a species value yet
 UPDATE animals
 SET species = 'pokemon'
-WHERE species IS NULL;
+WHERE species IS NULL OR species = 'unknown';
 
 -- Commit the transaction
 COMMIT;
