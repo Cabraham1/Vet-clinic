@@ -1,8 +1,5 @@
 /* Populate database with sample data. */
 
-INSERT INTO animals (name) VALUES ('Luna');
-INSERT INTO animals (name) VALUES ('Daisy');
-INSERT INTO animals (name) VALUES ('Charlie');
 
 
 INSERT INTO animals (id, name, species, date_of_birth, escape_attempts, neutered, weight_kg)
@@ -79,3 +76,36 @@ WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals
 SET owner_id = (SELECT id FROM owners WHERE name = 'Dean Winchester')
 WHERE name IN ('Angemon', 'Boarmon');
+
+
+-- INSERT owners details
+
+INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34);
+INSERT INTO owners (full_name, age) VALUES ('Jennifer Orwell', 19);
+INSERT INTO owners (full_name, age) VALUES ('Bob', 45);
+INSERT INTO owners (full_name, age) VALUES ('Melody Pond', 77);
+INSERT INTO owners (full_name, age) VALUES ('Dean Winchester', 14);
+INSERT INTO owners (full_name, age) VALUES ('Jodie Whittaker', 38);
+
+
+
+-- insert into species
+INSERT INTO species (name) VALUES ('Pokemon');
+INSERT INTO species (name) VALUES ('Digimon');
+
+
+-- To modify the inserted animals to include the species_id value based on the name
+UPDATE animals
+SET species_id = 
+    CASE 
+        WHEN name LIKE '%mon' THEN (SELECT id FROM species WHERE name = 'Digimon')
+        ELSE (SELECT id FROM species WHERE name = 'Pokemon')
+    END;
+
+
+-- Modify your inserted animals to include owner information (owner_id)
+UPDATE animals SET owner_id = 1 WHERE name = 'Agumon';
+UPDATE animals SET owner_id = 2 WHERE name IN ('Gabumon', 'Pikachu');
+UPDATE animals SET owner_id = 3 WHERE name IN ('Devimon', 'Plantmon');
+UPDATE animals SET owner_id = 4 WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+UPDATE animals SET owner_id = 5 WHERE name IN ('Angemon', 'Boarmon');
