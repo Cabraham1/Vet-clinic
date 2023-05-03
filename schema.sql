@@ -36,5 +36,6 @@ ALTER TABLE animals ADD COLUMN owner_id INTEGER REFERENCES owners(id);
 
 -- Set the id column as auto-incremented primary key
 ALTER TABLE animals ALTER COLUMN id SET DATA TYPE INTEGER;
+ALTER TABLE animals ALTER COLUMN id SET NOT NULL; -- declare id column as NOT NULL first
 ALTER TABLE animals ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1);
 ALTER TABLE animals ADD PRIMARY KEY (id);
