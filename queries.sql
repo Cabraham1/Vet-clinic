@@ -119,3 +119,27 @@ SELECT species, AVG(escape_attempts) AS avg_escapes
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+
+-- Animals belonging to Melody pond
+SELECT animals.name
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
+
+-- Animals that are pokemon
+SELECT animals.name
+FROM animals
+JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
+
+-- list of all owners
+SELECT owners.full_name, animals.name
+FROM owners
+LEFT JOIN animals ON owners.id = animals.owner_id;
+
+-- number of animals per specie
+SELECT species.name, COUNT(animals.id)
+FROM species
+JOIN animals ON species.id = animals.species_id
+GROUP BY species.name;
