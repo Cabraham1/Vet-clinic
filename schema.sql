@@ -49,3 +49,83 @@ CREATE TABLE owners (
   full_name VARCHAR(255),
   age INTEGER
 );
+
+CREATE TABLE vets (
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  age INTEGER,
+  date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+  vet_id INTEGER,
+  species_id INTEGER,
+  PRIMARY KEY (vet_id, species_id),
+  FOREIGN KEY (vet_id) REFERENCES vets(id),
+  FOREIGN KEY (species_id) REFERENCES species(id)
+);
+
+
+-- Create a table named vets
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  age INTEGER,
+  date_of_graduation DATE
+);
+
+
+-- Create a "join table" called specializations
+CREATE TABLE specializations (
+  vet_id INTEGER REFERENCES vets (id),
+  species_id INTEGER REFERENCES species (id),
+  PRIMARY KEY (vet_id, species_id)
+);
+
+
+-- Create a "join table" called visits
+CREATE TABLE visits (
+  id SERIAL PRIMARY KEY,
+  animal_id INTEGER REFERENCES animals(animal_id),
+  vet_id INTEGER REFERENCES vets(id),
+  visit_date DATE
+);
+
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- changed visit_date TO date_of_visit
+ALTER TABLE visits RENAME COLUMN visit_date TO date_of_visit;
+
+
+-- Create a table named vets
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  age INTEGER,
+  date_of_graduation DATE
+);
+
+
+-- Create a "join table" called specializations
+CREATE TABLE specializations (
+  vet_id INTEGER REFERENCES vets (id),
+  species_id INTEGER REFERENCES species (id),
+  PRIMARY KEY (vet_id, species_id)
+);
+
+
+-- Create a "join table" called visits
+CREATE TABLE visits (
+  id SERIAL PRIMARY KEY,
+  animal_id INTEGER REFERENCES animals(id),
+  vet_id INTEGER REFERENCES vets(id),
+  visit_date DATE
+);
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- changed visit_date TO date_of_visit
+ALTER TABLE visits RENAME COLUMN visit_date TO date_of_visit;
