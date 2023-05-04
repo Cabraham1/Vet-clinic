@@ -86,10 +86,11 @@ CREATE TABLE specializations (
 -- Create a "join table" called visits
 CREATE TABLE visits (
   id SERIAL PRIMARY KEY,
-  animal_id INTEGER REFERENCES animals(id),
+  animal_id INTEGER REFERENCES animals(animal_id),
   vet_id INTEGER REFERENCES vets(id),
   visit_date DATE
 );
+
 
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
